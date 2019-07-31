@@ -39,6 +39,7 @@ alias ls="ls --color=always"
 alias la="ls -a --color=always"
 alias ll="ls -al --color=always"
 alias pk="brew install"
+alias v="vim"
 
 alias zz="source ~/.bash_profile"
 alias vbrc="vim /nfs/users/nfs_p/pb18/.bash_profile"
