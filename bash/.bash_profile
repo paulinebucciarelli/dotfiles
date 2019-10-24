@@ -30,6 +30,21 @@ shopt -s histappend
 export HISTFILESIZE=
 export HISTFILE=
 
+#pour utiliser les racourcis vim en bash
+set -o vi
+
+### PRETTY PROMPT ###
+export PS1="\[\e[0;34m\] \$(echo \"\${PWD%/*}\" | sed -e 's;\(/.\)[^/]*;\1;g')/\
+`# this line shows first letter for each of the intermediate folders in the current dir`\
+\[\e[0;35m\]\${PWD##*/} \[\e[0m\]\
+`# this shows current dir`\
+\$(if [ \$? == 0 ]; then echo ''; else echo '\[\e[0;41m\] ▲ \[\e[0m\]'; fi)\
+`# this line sets a symbol depending on exit status of previous command`\
+\[\e[0;33m\]❯\[\e[0m\] "\
+`#this is the symbol i use to mark end of prompt and its colored yellow`
+
+
+
 
 alias pk="brew install"
 alias v="vim"
@@ -64,18 +79,28 @@ if [ "$(uname)" == "Darwin" ]; then
 	unset __conda_setup
 	# <<< conda init <<<
 else
-	-export PATH=/nfs/users/nfs_p/pb18/.linuxbrew/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH # add Ruby to path (Homebrew needs Ruby to run)
-	-export PATH="/nfs/users/nfs_p/pb18/.linuxbrew/Homebrew/bin/:$PATH" # add programs installed by homebrew
+#	export PATH=/nfs/users/nfs_p/pb18/.linuxbrew/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH # add Ruby to path (Homebrew needs Ruby to run)
+#	export PATH="/nfs/users/nfs_p/pb18/.linuxbrew/Homebrew/bin/:$PATH" # add programs installed by homebrew
 	alias ls="ls --color=always"
-	alias la="ls -a --color=always"
-	alias ll="ls -al --color=always"
+	alias la="ls -a --color=always --human-readable"
+	alias ll="ls -al --color=always --human-readable"
 
 	export PATH="$PATH:/software/CGP/bin" # add CASM programs to PATH
+	export EDITOR=vim
+	export PAGER=bat
 	export DATABASECONNCONFIG=/software/CGP/projects/databaseconn/perl/config/dbUsers.CGP.xml
-	export LSB_DEFAULTGROUP="team154"
+	export LSB_DEFAULTGROUP="team154-grp"
 	eval $(/nfs/users/nfs_p/pb18/.linuxbrew/Homebrew/bin//brew shellenv)
 
+	unset PYTHONPATH
+	#if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ] && [[ $- == *i* ]]; then
+	#	tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+	#fi
+
+
 fi
+
+alias stashme="git stash --include-untracked"
 
 
 
