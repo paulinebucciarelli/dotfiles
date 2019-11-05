@@ -86,6 +86,7 @@ else
 	alias ll="ls -al --color=always --human-readable"
 
 	export PATH="$PATH:/software/CGP/bin" # add CASM programs to PATH
+	export PATH="/nfs/users/nfs_p/pb18/bin:$PATH" # add my bin to PATH
 	export EDITOR=vim
 	export PAGER=bat
 	export DATABASECONNCONFIG=/software/CGP/projects/databaseconn/perl/config/dbUsers.CGP.xml
