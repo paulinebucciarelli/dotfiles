@@ -10,6 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 " linter
 Plugin 'w0rp/ale'
 
+" themes
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -22,7 +24,7 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""
 syntax on
 set background=dark
-
+colorscheme onehalfdark
 
 set list	" show invisible characters
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
