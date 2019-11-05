@@ -61,7 +61,7 @@ if [ "$(uname)" == "Darwin" ]; then
 	alias ll="ls -alG" # color ls for hidden files, as a list (showing permission information + sizes of files)
 	alias piphb="/Users/pb18/homebrew/bin/python3 -m pip"
 	alias pyhb="/Users/pb18/homebrew/bin/python3"
-
+	alias redhat="ssh cgp-redhat-login"
 	# added by Anaconda3 2019.07 installer
 	# >>> conda init >>>
 	# !! Contents within this block are managed by 'conda init' !!
