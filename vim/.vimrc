@@ -29,7 +29,7 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 set relativenumber number	" Show line numbers
 set showbreak=+++	" Wrap-broken line prefix
-set textwidth=100	" Line wrap (number of cols)
+"set textwidth=100	" Line wrap (number of cols)
 set showmatch	" Highlight matching brace
 " Search within search if visual selection
 vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
